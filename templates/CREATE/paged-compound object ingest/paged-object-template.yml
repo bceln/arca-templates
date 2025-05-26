@@ -1,0 +1,143 @@
+# \\ REQUIRED CONFIG - Update host (your Arca site URL), username, password, input directory, and input CSV filename.
+task: create
+host: "https://[your-arca-site].arcabc.ca"
+username: [USERNAME HERE]
+password: [PASSWORD HERE]
+content_type: islandora_object
+secure_ssl_only: false
+input_dir: [your-project-subdirectory]
+input_csv: [your-csv-title].csv
+allow_missing_files: false
+
+# \\ REQUIRED TAXONOMY SETTINGS - DO *NOT* MAKE CHANGES TO THIS SECTION.
+allow_adding_terms: true
+require_entity_reference_views: false
+protected_vocabularies:
+ - islandora_models
+ - islandora_display
+ - islandora_media_use
+ - library_of_congress_resource_typ
+ - csl_type
+ - rights_statements
+ - creative_commons_licenses_4_0
+ - degree_levels
+ - coar_access_rights
+ - mods_relation_types
+
+# \\ PAGED CONTENT SETTINGS
+paged_content_from_directories: true
+page_files_source_dir_field: directory
+viewer_override_fieldname: field_display_hints
+paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
+paged_content_page_viewer_override: 192
+# \\ ONLY INCLUDE FOLLOWING LINES IF INGESTING ADDITIONAL TEXT MEDIA WITH IMAGES
+#paged_content_image_file_extension: tif
+# WARNING: Disable the context at /admin/structure/context that extracts text from images before running this ingest. Re-enable after running Workbench.
+#paged_content_additional_page_media:
+# - 346: txt
+# - 206: hocr
+  
+# \\ OPTIONAL OUTPUT INFORMATION - Update output_csv to include the file path and whatever you would like your output metadata to be called.
+output_csv: [path/to/your-csv-title-OUTPUT].csv
+# \\ Set following line to false. Currently a bug if set to true.
+output_csv_include_input_csv: false
+
+# \\ OPTIONAL LIMITATION & PROGRESS SETTINGS - Recommended for large batches.
+#csv_start_row: 101
+#csv_stop_row: 400
+show_percentage_of_csv_input_processed: true
+
+# \\ OPTIONAL FIELD & VALUE TEMPLATES - Delete or null if not using.
+#csv_field_templates:
+# - field_csl_type: 45
+# - field_member_of: 25663
+# - field_genre: 371
+# - field_resource_type: 237
+#ignore_csv_columns: ['field_csl_type', 'field_member_of', 'field_genre', 'field_resource_type']
+# csv_value_templates:
+# - field_origin_information: publication:Vancouver (B.C.):$csv_value:The Proletarian Publishing Association
+# - field_extent: $csv_value pages
+
+# \\ PARAGRAPH INFORMATION
+# If you're not using certain fields within a given paragraph, make sure to negate them with a # at the beginning of the line so that placeholders aren't needed in the CSV.
+paragraph_fields:
+  node:
+    field_origin_information:
+      type: origin_information
+      field_order:
+#        - field_event_type
+        - field_place
+        - field_date_issued
+#        - field_date_captured
+#        - field_other_date
+#        - field_copyright_date
+        - field_publisher
+#        - field_edition
+#        - field_issuance
+#        - field_frequency
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_hierarchical_geographic_su:
+      type: hierarchical_geographic_subject
+      field_order:
+        - field_continent
+        - field_country
+        - field_region
+        - field_state
+        - field_territory
+        - field_county
+        - field_city
+        - field_city_section
+        - field_island
+        - field_area
+        - field_extraterrestrial_area
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_note_paragraph:
+      type: note
+      field_order:
+        - field_note_type
+        - field_note
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_series_paragraph:
+      type: series
+      field_order:
+        - field_series_number
+        - field_series_titles
+      field_delimiter: ':'
+      subdelimiter: '|' 
+    field_related_item_paragraph:
+      type: related_item
+      field_order:
+        - field_relationship_type
+        - field_title_plain
+        - field_url
+        - field_related_item_extent
+        - field_related_item_genre
+        - field_related_item_identifier
+      field_delimiter: '^'
+      subdelimiter: '|'
+    field_record_information:
+      type: record_information
+      field_order:
+        - field_record_content_source
+        - field_record_creation_date
+        - field_record_change_date
+        - field_record_identifier
+        - field_record_origin
+        - field_record_information_note
+        - field_record_cataloging_language
+        - field_description_standard
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_title:
+      type: title
+      field_order:
+#        - field_title_part_name
+#        - field_title_part_number
+        - field_title
+        - field_title_type
+      field_delimiter: ':'
+      subdelimiter: '|'
+
