@@ -1,0 +1,94 @@
+# \\ REQUIRED CONFIG FIELDS
+task: update
+host: "https://[your-arca-site].arcabc.ca"
+username: [USERNAME HERE]
+password: [PASSWORD HERE]
+content_type: islandora_object
+secure_ssl_only: false
+input_csv: [your-input-csv-title].csv
+# \\ Replace the square brackets on the following line with the update mode you'd like to use.
+# \\ Options: replace, append, delete
+update_mode: [mode-name-here]
+
+# \\ PARAGRAPH INFORMATION
+# May be necessary to include, depending on the metadata being updated and update mode.
+paragraph_fields:
+  node:
+    field_origin_information:
+      type: origin_information
+      field_order:
+        - field_event_type
+        - field_place
+        - field_date_issued
+        - field_date_captured
+        - field_other_date
+        - field_copyright_date
+        - field_publisher
+        - field_edition
+        - field_issuance
+        - field_frequency
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_hierarchical_geographic_su:
+      type: hierarchical_geographic_subject
+      field_order:
+        - field_continent
+        - field_country
+        - field_region
+        - field_state
+        - field_territory
+        - field_county
+        - field_city
+        - field_city_section
+        - field_island
+        - field_area
+        - field_extraterrestrial_area
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_note_paragraph:
+      type: note
+      field_order:
+        - field_note_type
+        - field_note
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_series_paragraph:
+      type: series
+      field_order:
+        - field_series_number
+        - field_series_titles
+      field_delimiter: ':'
+      subdelimiter: '|' 
+    field_related_item_paragraph:
+      type: related_item
+      field_order:
+        - field_relationship_type
+        - field_title_plain
+        - field_url
+        - field_related_item_extent
+        - field_related_item_genre
+        - field_related_item_identifier
+      field_delimiter: '^'
+      subdelimiter: '|'
+    field_record_information:
+      type: record_information
+      field_order:
+        - field_record_content_source
+        - field_record_creation_date
+        - field_record_change_date
+        - field_record_identifier
+        - field_record_origin
+        - field_record_information_note
+        - field_record_cataloging_language
+        - field_description_standard
+      field_delimiter: ':'
+      subdelimiter: '|'
+    field_title:
+      type: title
+      field_order:
+        - field_title_part_name
+        - field_title_part_number
+        - field_title
+        - field_title_type
+      field_delimiter: ':'
+      subdelimiter: '|'
