@@ -6,6 +6,18 @@ password: [PASSWORD HERE]
 content_type: islandora_object
 secure_ssl_only: false
 input_csv: [your-input-csv-title].csv
+protected_vocabularies:
+ - islandora_models
+ - islandora_display
+ - islandora_media_use
+ - library_of_congress_resource_typ
+ - csl_type
+ - rights_statements
+ - creative_commons_licenses_4_0
+ - degree_levels
+ - coar_access_rights
+ - mods_relation_types
+
 # \\ Replace the square brackets on the following line with the update mode you'd like to use.
 # \\ Options: replace, append, delete
 update_mode: [mode-name-here]
