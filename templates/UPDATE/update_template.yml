@@ -9,6 +9,7 @@ input_csv: [your-input-csv-title].csv
 # \\ Replace the square brackets on the following line with the update mode you'd like to use.
 # \\ Options: replace, append, delete
 update_mode: [mode-name-here]
+use_workbench_permissions: true
 
 # \\ PARAGRAPH INFORMATION
 # May be necessary to include, depending on the metadata being updated and update mode.
