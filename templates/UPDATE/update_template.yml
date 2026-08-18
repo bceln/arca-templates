@@ -10,6 +10,7 @@ input_csv: [your-input-csv-title].csv
 # \\ Options: replace, append, delete
 update_mode: [mode-name-here]
 use_workbench_permissions: true
+perform_soft_checks: true
 
 # \\ PARAGRAPH INFORMATION
 # May be necessary to include, depending on the metadata being updated and update mode.
