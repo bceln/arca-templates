@@ -9,6 +9,7 @@ input_dir: [your-project-subdirectory]
 input_csv: [your-csv-title].csv
 allow_missing_files: false
 use_workbench_permissions: true
+perform_soft_checks: true
 
 # \\ REQUIRED TAXONOMY SETTINGS - DO *NOT* MAKE CHANGES TO THIS SECTION.
 allow_adding_terms: true
